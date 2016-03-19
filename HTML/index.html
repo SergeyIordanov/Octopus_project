@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Skewed</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+	
+	<!--CSS-->
+	<link rel="stylesheet" href="css/rwdgrid.css">
+	<link rel="stylesheet" href="css/skew.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/cbp-fwslider.css">
+	<link rel="stylesheet" href="css/responsive-nav.css">
+	<link rel="stylesheet" href="css/owl.carousel.css">
+	<link rel="stylesheet" href="css/owl.theme.css">
+	<link rel="stylesheet" href="css/owl.transitions.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/prettyPhoto.css" />
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/mediaqueries.css">
+		
+	<!--Javascript-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/jquery.cbpFWSlider.js"></script>
+	<script src="js/responsive-nav.js"></script>
+	<script src="js/owl.carousel.js"></script>
+	<script src="js/wow.js"></script><script> new WOW().init();</script>
+	<script src="js/jquery.counterup.js"></script>
+	<script src="js/jquery.waypoints.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<!--[if lt IE 9]>
+		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	
+</head>
+<body>
+	<div id="cbp-fwslider" class="cbp-fwslider skew-bottom-ccw">
+	    <ul>
+	        <li style="background: url(images/background-1.jpg);"></li>
+	        <li style="background: url(images/background-2.jpg);"></li>
+	        <li style="background: url(images/background-3.jpg);"></li>
+	    </ul>
+	</div>
+	<script>
+		$( function() {
+			$( '#cbp-fwslider' ).cbpFWSlider({
+				// default transition speed (ms)
+				speed : 1000,
+				// default transition easing
+				easing : 'ease'
+			});
+		} );
+	</script>	
+	<header class="header">
+		<div class="top-bar">
+			<div class="container">
+				<div class="site-title">
+					<a href="#">Skewed</a>
+				</div>
+				<nav class="nav-collapse">
+					<ul class="top-nav">
+						<li><a href="#about-us">About Us</a></li>
+						<li><a href="#video">Video</a></li>
+						<li><a href="#team">Team</a></li>
+						<li><a href="#parallax">Parallax</a></li>
+						<li><a href="#principles">Principles</a></li>
+						<li><a href="#portfolio">Portfolio</a></li>
+						<li><a href="#achievements">Achievements</a></li>
+					</ul>
+				</nav>
+				<script>
+				  var navigation = responsiveNav(".nav-collapse");
+				</script>
+			</div>
+		</div>
+	</header>
+	
+	<div class="container header-inner">
+		<h1 class="headline">Skewed is a <span>slightly wonky</span> landing page template</h1>
+	</div>	
+	
+	<a name="about-us"></a>
+	<section >
+		<div class="container-12">
+			<div class="grid-6">
+				<div class="text-block-left">
+					<h2>About Us</h2>
+					<p class="subheading">Dolor sit amet, consectetur adipiscing elit.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum enim diam, at condimentum purus facilisis in. Aenean convallis tempor nulla, in elementum odio ornare vitae. In faucibus tempus ante vitae pretium. Ut facilisis elit sapien, sed suscipit ex auctor vitae. </p>
+					<a href="#" class="button">Find out more</a>
+				</div>
+			</div>
+			<div class="grid-6">
+				<img class="responsive-img round-corners" src="images/image-3.jpg" alt="" />
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+	
+	<a name="video"></a>
+	<section class="alt-background skew-top-ccw skew-bottom-ccw">
+		<div class="container-12">
+			<div class="text-block-center">
+				<h2>Video Presentation</h2>
+				<p class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+			<div class="video-container">
+				<video class="responsive-vid" controls="controls" poster="images/video-placeholder.jpg" width="820" height="480">
+				    <source src="#" type="video/mp4" />
+				    <source src="#" type="video/webm" />
+				    <source src="#" type="video/ogg" />
+				    </object>
+				</video>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+	
+	<a name="team"></a>
+	<section>
+		<div class="container-12">
+			<div class="text-block-center">
+				<h2>Meet The Team</h2>
+				<p class="subheading">Dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+		</div>
+		<div id="owl-team">
+			<div class="team-member animated flipInX wow" data-wow-delay="500ms">
+				<div class="team-photo" >
+					<img src="images/team-1.jpg" alt="" />
+				</div>
+				<h4>Jonathan Smith</h4>
+				<p class="job-role">Designer</p>
+			</div>
+			<div class="team-member animated flipInY wow" data-wow-delay="500ms">
+				<div class="team-photo">
+					<img src="images/team-2.jpg" alt="" />
+				</div>
+				<h4>Jane Donovan</h4>
+				<p class="job-role">UI Developer</p>
+			</div>
+			<div class="team-member animated flipInX wow" data-wow-delay="500ms">
+				<div class="team-photo">
+					<img src="images/team-3.jpg" alt="" />
+				</div>
+				<h4>Sam Davidson</h4>
+				<p class="job-role">Programmmer</p>
+			</div>
+			<div class="team-member animated flipInY wow" data-wow-delay="500ms">
+				<div class="team-photo">
+					<img src="images/team-4.jpg" alt="" />
+				</div>
+				<h4>Kelly Johnson</h4>
+				<p class="job-role">UX Developer</p>
+			</div>
+			<div class="team-member animated flipInX wow" data-wow-delay="500ms">
+				<div class="team-photo" >
+					<img src="images/team-1.jpg" alt="" />
+				</div>
+				<h4>Jonathan Smith</h4>
+				<p class="job-role">Designer</p>
+			</div>
+			<div class="team-member animated flipInY wow" data-wow-delay="500ms">
+				<div class="team-photo">
+					<img src="images/team-2.jpg" alt="" />
+				</div>
+				<h4>Jane Donovan</h4>
+				<p class="job-role">UI Developer</p>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function() {
+			  $("#owl-team").owlCarousel({
+			  	items: 4
+			  	});
+			});
+		</script>
+		<div class="clear"></div>
+	</section>
+	
+	<a name="parallax"></a>
+	<section class="module parallax parallax-3 skew-top-cw skew-bottom-cw" style="padding: 300px 0;">
+		<div class="container-12">
+			<div class="text-block-center">
+				<h2>Here’s Some Parallax</h2>
+				<p class="subheading">(If you’re into that kind of thing)</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum enim diam, at condimentum purus facilisis in. Aenean convallis tempor nulla, in elementum odio ornare vitae. In faucibus tempus ante vitae pretium. Ut facilisis elit sapien, sed suscipit ex auctor vitae. </p>
+				<a href="#" class="button">Find out more</a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+	
+	<a name="principles"></a>
+	<section>
+		<div class="container-12">
+			<div class="grid-6">
+				<img class="responsive-img round-corners" src="images/image-1.jpg" alt="" />
+			</div>
+			<div class="grid-6">
+				<div class="text-block-right">
+					<h2>Our Principles</h2>
+					<p class="subheading">Dolor sit amet, consectetur adipiscing elit.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum enim diam, at condimentum purus facilisis in. Aenean convallis tempor nulla, in elementum odio ornare vitae. In faucibus tempus ante vitae pretium. Ut facilisis elit sapien, sed suscipit ex auctor vitae. </p>
+					<a href="#" class="button">Find out more</a>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+	
+	<a name="portfolio"></a>
+	<section class="alt-background skew-top-ccw skew-bottom-ccw">
+		<div class="container-12">
+			<script>
+			$(document).ready(function(){
+			    $("a[rel^='prettyPhoto']").prettyPhoto({
+			        deeplinking: false,
+			        social_tools: false
+			    });
+			  });
+			  </script>
+			  <div class="text-block-center">
+				<h2>Portfolio</h2>
+				<p class="subheading">Some of our latest work</p>
+			</div>
+			<div id="owl-portfolio">
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-1.jpg" rel="prettyPhoto"><img src="images/project-1.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-2.jpg" rel="prettyPhoto"><img src="images/project-2.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-3.jpg" rel="prettyPhoto"><img src="images/project-3.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-4.jpg" rel="prettyPhoto"><img src="images/project-4.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-5.jpg" rel="prettyPhoto"><img src="images/project-5.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-6.jpg" rel="prettyPhoto"><img src="images/project-6.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-7.jpg" rel="prettyPhoto"><img src="images/project-7.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-8.jpg" rel="prettyPhoto"><img src="images/project-8.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-9.jpg" rel="prettyPhoto"><img src="images/project-9.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-10.jpg" rel="prettyPhoto"><img src="images/project-10.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-11.jpg" rel="prettyPhoto"><img src="images/project-11.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+				<div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+					<a href="images/project-12.jpg" rel="prettyPhoto"><img src="images/project-12.jpg" alt="" />
+					<span class="zoom-icon fa fa-search"></span></a>
+				</div>
+			</div>
+			<script>
+				$(document).ready(function() {
+				  $("#owl-portfolio").owlCarousel({
+				  	items: 4
+				  	});
+				});
+			</script>
+			<div class="clear"></div>
+		</div>
+	</section>
+	
+	<a name="achievements"></a>
+	<section>
+		<div class="container-12">
+			<div class="text-block-center">
+				<h2>Our Achievements</h2>
+				<p class="subheading">We keep track of this stuff!</p>
+			</div>
+			<div class="achievements">
+				<div class="grid-3">
+					<div class="achievement" data-wow-delay="500ms">
+						<div class="fa fa-flag-o fa-5x" ></div>
+						<h3 class="counter">265</h3>
+						<p>Projects Completed</p>
+					</div>
+				</div>
+				<div class="grid-3">
+					<div class="achievement" data-wow-delay="500ms">
+						<div class="fa fa-smile-o fa-5x" ></div>
+						<h3 class="counter">198</h3>
+						<p>Happy Clients</p>
+					</div>
+				</div>
+				<div class="grid-3">
+					<div class="achievement" data-wow-delay="500ms">
+						<div class="fa fa-lightbulb-o fa-5x" ></div>
+						<h3 class="counter">1,899</h3>
+						<p>Problems Solved</p>
+					</div>
+				</div>
+				<div class="grid-3">
+					<div class="achievement" data-wow-delay="500ms">
+						<div class="fa fa-moon-o fa-5x" ></div>
+						<h3 class="counter">365</h3>
+						<p>All-nighters Pulled</p>
+					</div>
+				</div>
+			</div>
+			<script>
+			jQuery(document).ready(function( $ ) {
+				$('.counter').counterUp({
+					delay: 10, // the delay time in ms
+					time: 1000 // the speed time in ms
+				});
+			});
+			</script>
+			<div class="clear"></div>
+			
+			<div class="hr"></div>
+			
+			<div id="owl-testimonials">
+				<div class="quote animated flipInX wow" data-wow-delay="500ms">
+					<blockquote>Lorem ipsum dolor sit amet, consectetur <span>adipiscing elit</span>. Fusce tristique finibus felis, eget molestie eros placerat vitae. Ut ut ipsum augue.</blockquote>
+					<p>- Alfred Johnson, CEO Youtech</p>
+				</div>
+				<div class="quote animated flipInX wow" data-wow-delay="500ms">
+					<blockquote>Lorem ipsum dolor sit amet, consectetur <span>adipiscing elit</span>. Fusce tristique finibus felis, eget molestie eros placerat vitae. Ut ut ipsum augue.</blockquote>
+					<p>- Alfred Johnson, CEO Youtech</p>
+				</div>
+				<div class="quote animated flipInX wow" data-wow-delay="500ms">
+					<blockquote>Lorem ipsum dolor sit amet, consectetur <span>adipiscing elit</span>. Fusce tristique finibus felis, eget molestie eros placerat vitae. Ut ut ipsum augue.</blockquote>
+					<p>- Alfred Johnson, CEO Youtech</p>
+				</div>
+			</div>
+			<script>
+				$(document).ready(function() {
+				  $("#owl-testimonials").owlCarousel({
+				  	items: 1
+				  	});
+				});
+			</script>
+		</div>
+	</section>
+	
+	<section class="alt-background skew-top-cw" style="padding-bottom: 80px;">
+		<div class="container-12">
+			<div class="text-block-center">
+				<h2>Keep Up To Date</h2>
+				<p class="subheading">Subscribe to our mailing list</p>
+			</div>
+			<form class="mailing-list">
+				<div class="grid-2">
+					&nbsp;
+				</div>
+				<div class="grid-3">
+					<input type="text" name="" value="Your name" />
+				</div>
+				<div class="grid-3">
+					<input type="text" name="" value="Email address" />
+				</div>
+				<div class="grid-2">
+					<input type="button" name="" value="Subscribe" />
+				</div>
+				<div class="grid-2">
+					&nbsp;
+				</div>
+				<div class="clear"></div>
+			</form>
+		</div>
+	</section>
+	
+	<footer class="footer">
+		<div class="container-12">
+			<ul class="social">
+				<li><a href="#" title="Facebook" class="fa fa-facebook"></a></li>
+				<li><a href="#" title="Twitter" class="fa fa-twitter"></a></li>
+				<li><a href="#" title="Google+" class="fa fa-google"></a></li>
+				<li><a href="#" title="Dribbble" class="fa fa-dribbble"></a></li>
+				<li><a href="#" title="Instagram" class="fa fa-instagram"></a></li>
+				<div class="clear"></div>
+			</ul>
+			<p>Copyright 2015 <em>Skewed</em>. All Rights Reserved</p>
+		</div>
+	</footer>
+		
+</div>
+</html>
