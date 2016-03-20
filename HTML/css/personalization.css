@@ -1,17 +1,30 @@
 #logo-name {
-    font-family: sans-serif;
-    margin-top: 25px;
+	font-family: sans-serif;
+	margin-top: 25px;
 }
 
-.button-large {
-    padding: 25px 75px;
+@media ( min-width : 1024px) {
+	.adaptive-button {
+		font-size: 30px !important;
+		padding: 20px 65px !important;
+	}
 }
 
-.button-big {
-    padding: 15px 50px;
+@media ( min-width : 720px) and ( max-width : 1023px) {
+	.adaptive-button {
+		font-size: 25px !important;
+		padding: 15px 55px !important;
+	}
+}
+
+@media ( min-width : 420px) and ( max-width : 719px) {
+	.adaptive-button {
+		font-size: 25px !important;
+		padding: 12px 45px !important;
+	}
 }
 
 .step-img {
-    width: 300px;
-    height: 300px;
+	width: 300px;
+	height: 300px;
 }
