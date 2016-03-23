@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/personalization.css">
+	<link rel="stylesheet" href="css/notifyme.css"/>
 
 	<!--Javascript-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -33,6 +34,7 @@
 	<script src="js/jquery.counterup.js"></script>
 	<script src="js/jquery.waypoints.js"></script>
 	<script src="js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="js/notifyme.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -107,7 +109,7 @@
 
 	<a name="video"></a>
 	<section class="alt-background skew-top-ccw skew-bottom-ccw">
-		<h2><div class="text-block-center">How it works</div></h2>
+		<div class="text-block-center"><h2>How it works</h2></div>
 		<div class="container-12">
 			<div class="grid-2">
 				<img class="responsive-img" src="images/circle1.png" alt="circle-1"/>
@@ -243,7 +245,7 @@
 					<input type="text" name="" value="Email address" />
 				</div>
 				<div class="grid-2">
-					<input type="button" name="" value="Subscribe" />
+					<input id="subscribeBtn" type="button" name="" value="Subscribe" />
 				</div>
 				<div class="grid-2">
 					&nbsp;
@@ -265,5 +267,18 @@
 			</ul>
 		</div>
 	</footer>
+	<script>
+		$('#subscribeBtn')
+				.click(
+						function() {
+							$(this)
+									.notifyMe(
+											'bottom',
+											'info',
+											'You have successfully subsribed', // Title
+											'We will send you all latest news about the project!',
+											200, 5000);
+						});
+	</script>
 </body>
 </html>

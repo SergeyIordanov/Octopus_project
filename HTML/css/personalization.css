@@ -28,3 +28,11 @@
 	width: 300px;
 	height: 300px;
 }
+.mailing-list input[type=button]:hover {
+	border: 2px solid #f7cc4b;
+}
+
+.mailing-list input[type=text] {
+	border: 2px solid #f7cc4b;
+	color: #BFB2B2;
+}
