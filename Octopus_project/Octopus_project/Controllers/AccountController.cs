@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Octopus_project.Models;
+using System.IO;
 
 namespace Octopus_project.Controllers
 {
@@ -147,11 +148,19 @@ namespace Octopus_project.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase uploadImage)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                byte[] avatar = null;
+                if (uploadImage != null)
+                {
+                    using (var binaryReader = new BinaryReader(uploadImage.InputStream))
+                    {
+                        avatar = binaryReader.ReadBytes(uploadImage.ContentLength);
+                    }
+                }
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, Surname = model.Surname, RegistrationDate = DateTime.Now, Avatar = avatar };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Octopus_project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,16 @@ namespace Octopus_project.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db;
+
+        public HomeController()
+        {
+            db = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return View(db.Users.ToList());
         }
 
         public ActionResult About()
