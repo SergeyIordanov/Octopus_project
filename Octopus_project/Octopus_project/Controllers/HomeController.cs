@@ -18,6 +18,9 @@ namespace Octopus_project.Controllers
 
         public ActionResult Index()
         {
+            //foreach (var user in db.Users)
+            //    db.Users.Remove(user);
+            //db.SaveChanges();
             return View(db.Users.ToList());
         }
 

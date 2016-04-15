@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Octopus_project.Models;
 using System.IO;
+using Octopus_project.Services;
 
 namespace Octopus_project.Controllers
 {
@@ -157,7 +158,7 @@ namespace Octopus_project.Controllers
                 {
                     using (var binaryReader = new BinaryReader(uploadImage.InputStream))
                     {
-                        avatar = binaryReader.ReadBytes(uploadImage.ContentLength);
+                        avatar = ImageResizer.Resize(uploadImage, 150, 150);
                     }
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name, Surname = model.Surname, RegistrationDate = DateTime.Now, Avatar = avatar };
