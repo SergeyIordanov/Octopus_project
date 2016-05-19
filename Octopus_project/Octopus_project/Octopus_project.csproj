@@ -177,24 +177,75 @@
     <Compile Include="Migrations\201604140652319_AddUserFields.Designer.cs">
       <DependentUpon>201604140652319_AddUserFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605191550079_AddPhotoTable.cs" />
+    <Compile Include="Migrations\201605191550079_AddPhotoTable.Designer.cs">
+      <DependentUpon>201605191550079_AddPhotoTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ImageResizer.cs" />
+    <Compile Include="Services\SavingImage.cs" />
+    <Compile Include="Services\SessionValuesParser.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\arrow-upload-icon.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cbp-fwslider.css" />
+    <Content Include="Content\component.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\favicon.png" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\like.png" />
+    <Content Include="Content\liked.png" />
+    <Content Include="Content\mediaqueries.css" />
+    <Content Include="Content\normalize.css" />
+    <Content Include="Content\notifyme.css" />
+    <Content Include="Content\number-2-hi.png" />
+    <Content Include="Content\One.jpg" />
+    <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\owl.theme.css" />
+    <Content Include="Content\owl.transitions.css" />
+    <Content Include="Content\parallax.css" />
+    <Content Include="Content\prettyPhoto.css" />
+    <Content Include="Content\responsive-nav.css" />
+    <Content Include="Content\rwdgrid.css" />
+    <Content Include="Content\service.css" />
+    <Content Include="Content\site-title.png" />
+    <Content Include="Content\skew-full-bottom-ccw.png" />
+    <Content Include="Content\skew-full-bottom-cw.png" />
+    <Content Include="Content\skew-full-top-ccw.png" />
+    <Content Include="Content\skew-full-top-cw.png" />
+    <Content Include="Content\skew-min-bottom-ccw.png" />
+    <Content Include="Content\skew-min-bottom-cw.png" />
+    <Content Include="Content\skew-min-top-ccw.png" />
+    <Content Include="Content\skew-min-top-cw.png" />
+    <Content Include="Content\skew.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\Three.jpg" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\responsivenav.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\responsivenav.eot" />
+    <Content Include="fonts\responsivenav.ttf" />
+    <Content Include="fonts\responsivenav.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -218,8 +269,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Photos.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -241,6 +291,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\AddPhoto.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -256,6 +307,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604140652319_AddUserFields.resx">
       <DependentUpon>201604140652319_AddUserFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191550079_AddPhotoTable.resx">
+      <DependentUpon>201605191550079_AddPhotoTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
