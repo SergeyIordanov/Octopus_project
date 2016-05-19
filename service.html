@@ -53,16 +53,17 @@
 
     <!--Javascript for notifyMe-->
     <script type="text/javascript" src="js/notifyme/notifyme.js"></script>
-
-
-
     <!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
     <!--[if lt IE 9]>
 		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
-
+    <style>
+        .no-left {
+            float: none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -114,17 +115,9 @@
                 <div class="appendix"></div>
                 <form class="mailing-list">
 
-                    <div class="grid-6">
+                    <div class="grid-6 no-left">
                         <h2>Upload photo</h2>
                         <p class="subheading">Just write your name, choose the photo by clicking on uppload button and click "Send"</p>
-                        <div class="grid-3">
-                            <input type="text" name="" required placeholder="Your name" id="userNameTextBox" />
-                            <!--Input for name-->
-                        </div>
-                        <div class="grid-3">
-                            <input type="text" name="" required placeholder="Your surname" id="userSurameTextBox" required/>
-                            <!--Input for surname-->
-                        </div>
                     </div>
 
                     <!--Div for uppload button (Codrops)-->
@@ -138,8 +131,8 @@
                             </figure> <span>Choose a file…</span></label>
                     </div>
 
-                    <div class="grid-2">
-                        <input type="submit" name="" value="Send" />
+                    <div>
+                        <input style="margin-top: 10%" type="submit" name="" value="Send" />
                     </div>
 
                 </form>
@@ -147,10 +140,6 @@
             </div>
         </div>
     </section>
-
-
-
-
 
     <!--Discovery photo section(Maybe rename this section)-->
     <a name="discoveryPhoto"></a>
@@ -170,7 +159,6 @@
             </div>
         </div>
         <div id="owl-portfolio">
-
             <!--This is the section for photo. You must add every photo by repeating this section with loop(for)-->
             <div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
                 <a href="images/project-1.jpg" rel="prettyPhoto"><img src="images/project-1.jpg" alt="" />
@@ -183,8 +171,6 @@
                 <h4>Jonathan Smith</h4>
             </div>
             <!--The end of section-->
-
-
         </div>
 
 
