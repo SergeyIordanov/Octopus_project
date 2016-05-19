@@ -12,37 +12,52 @@ namespace Octopus_project.Controllers
 {
     public class HomeController : Controller
     {
+
         ApplicationDbContext db;
 
         public HomeController()
         {
             db = new ApplicationDbContext();
+            ViewBag.Error = "";
         }
 
         public ActionResult Index()
         {
-            //foreach (var user in db.Users)
-            //    db.Users.Remove(user);
-            //db.SaveChanges();
-
-            //foreach (Photo photo in db.Photos)
-            //{
-            //    db.Photos.Remove(photo);
-            //}
-            //db.SaveChanges();
-            
-            return View(db.Users.ToList());
-        }
-
-        public ActionResult Photos()
-        {
+            ViewBag.Likes = "";
+            if (Session["Likes"] != null)
+                ViewBag.Likes = Session["Likes"];
             return View(db.Photos.ToList());
         }
 
-        [HttpGet]
-        public ActionResult AddPhoto()
+        [HttpPost]
+        public ActionResult Index(string publisherName, string publisherSurname, HttpPostedFileBase file)
         {
-            return View();
+            if (file == null || publisherName.Trim() == "" || publisherSurname.Trim() == "")
+            {
+                ViewBag.Error = "Fill all fieds at the form";
+                return View();
+            }
+            if (file.ContentType != "image/jpeg" && file.ContentType != "image/png")
+            {
+                ViewBag.Error = "The file must be .jpeg or .png";
+                return View();
+            }
+            string fileName = file.FileName;
+
+            string filePath = HttpContext.Server.MapPath(
+                    "../" + ConfigurationManager.AppSettings["ImagesPath"] + fileName);
+
+            SavingImage.SaveImage(file, filePath);
+
+            db.Photos.Add(
+                new Photo
+                {
+                    PublisherName = publisherName,
+                    PublisherSurname = publisherSurname,
+                    Path = fileName
+                });
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -76,6 +91,40 @@ namespace Octopus_project.Controllers
                 });
             db.SaveChanges();
             return RedirectToAction("Photos");
+        }         
+
+        public ActionResult Like(int? photoId)
+        {
+            if (photoId != null)
+            {
+                if (Session["Likes"] != null)
+                    if (SessionValuesParser.FindIdFromLikesString(Session["Likes"].ToString(), (int)photoId))
+                    {
+                        return RedirectToAction("Index");
+                    }
+                foreach (Photo photo in db.Photos)
+                    if (photoId == photo.PhotoId)
+                    {
+                        if (Session["Likes"] != null)
+                        {
+                            Session["Likes"] = Session["Likes"].ToString() + "|" + photoId;
+                        }
+                        else
+                            Session["Likes"] = photoId.ToString();
+                        photo.Likes++;
+                    }
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ClearDB()
+        {
+            foreach (Photo photo in db.Photos)
+                db.Photos.Remove(photo);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
+}
 }
