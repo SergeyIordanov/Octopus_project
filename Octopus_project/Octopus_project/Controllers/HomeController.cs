@@ -17,6 +17,7 @@ namespace Octopus_project.Controllers
 
         public HomeController()
         {
+            //var userId = User.Identity.GetUserId();
             db = new ApplicationDbContext();
             ViewBag.Error = "";
         }
