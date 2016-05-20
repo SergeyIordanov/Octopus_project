@@ -45,7 +45,7 @@ namespace Octopus_project.Controllers
             string fileName = file.FileName;
 
             string filePath = HttpContext.Server.MapPath(
-                    "../" + ConfigurationManager.AppSettings["ImagesPath"] + fileName);
+                    ConfigurationManager.AppSettings["ImagesPath"] + fileName);
 
             SavingImage.SaveImage(file, filePath);
 
@@ -126,5 +126,4 @@ namespace Octopus_project.Controllers
             return RedirectToAction("Index");
         }
     }
-}
 }
