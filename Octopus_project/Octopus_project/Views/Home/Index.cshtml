@@ -31,7 +31,6 @@
                     <li><a href="#discoveryPhoto">Discvoer</a></li>
                     <li><a href="#howItWorks">How it works</a></li>
                     <li><a href="#Subscribe">Subscribe</a></li>
-                    <li><p> | </p></li>
                     <li>@Html.Partial("_LoginPartial")</li>
                 </ul>
             </nav>
@@ -56,15 +55,7 @@
 
                     <div class="grid-6">
                         <h2>Upload photo</h2>
-                        <p class="subheading">Just write your name, choose the photo by clicking on uppload button and click "Send"</p>
-                        <div class="grid-3">
-                            <input type="text" name="PublisherName" required placeholder="Your name" id="userNameTextBox" />
-                            <!--Input for name-->
-                        </div>
-                        <div class="grid-3">
-                            <input type="text" name="PublisherSurname" required placeholder="Your surname" id="userSurameTextBox" />
-                            <!--Input for surname-->
-                        </div>
+                        <p class="subheading">Just click this big red button, choose the photo and click "Send"</p>
                     </div>
 
                     <!--Div for uppload button (Codrops)-->
@@ -78,7 +69,9 @@
                             </figure> <span>Choose a file…</span>
                         </label>
                     </div>
-
+                    <div class="grid-6">
+                        <p class="subheading">@ViewBag.Error</p>
+                    </div>
                     <div class="grid-2">
                         <input type="submit" name="" value="Send" />
                     </div>
@@ -96,7 +89,7 @@ else
         <div class="container-12">
             <div class="text-block-center">
                 <div class="appendix"></div>
-                    Ты че, сука, не зарегался, паскуда ебаная!?
+                    For adding your own photos just login or register:
                     @Html.Partial("_LoginPartial")
                 <div class="clear"></div>
             </div>

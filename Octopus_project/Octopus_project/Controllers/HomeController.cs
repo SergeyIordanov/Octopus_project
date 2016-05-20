@@ -33,15 +33,13 @@ namespace Octopus_project.Controllers
         [HttpPost]
         public ActionResult Index(string publisherName, string publisherSurname, HttpPostedFileBase file)
         {
-            if (file == null || publisherName.Trim() == "" || publisherSurname.Trim() == "")
+            if (file == null)
             {
-                ViewBag.Error = "Fill all fieds at the form";
-                return View();
+                return RedirectToAction("Index");
             }
             if (file.ContentType != "image/jpeg" && file.ContentType != "image/png")
             {
-                ViewBag.Error = "The file must be .jpeg or .png";
-                return View();
+                return RedirectToAction("Index");
             }
             string fileName = file.FileName;
 
@@ -50,6 +48,19 @@ namespace Octopus_project.Controllers
 
             SavingImage.SaveImage(file, filePath);
 
+            if (publisherName == null || publisherSurname == null)
+            {
+                string userId = User.Identity.GetUserId();
+                foreach(var user in db.Users)
+                {
+                    if(user.Id.Equals(userId))
+                    {
+                        publisherName = user.Name;
+                        publisherSurname = user.Surname;
+                        break;
+                    }
+                }
+            }
             db.Photos.Add(
                 new Photo
                 {
