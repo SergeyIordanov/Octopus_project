@@ -121,18 +121,25 @@ else
 
         @foreach (var photo in Model)
         {
+            bool isLiked = false;
             <div class="portfolio-item animated flipInX wow vote" data-wow-delay="500ms">
                 <a href="Content/@photo.Path" rel="prettyPhoto">
                     <img src="Content/@photo.Path" alt="" />
                     <span class="zoom-icon fa fa-search"></span>
-                </a>
-                @if (ViewBag.Likes.Contains(photo.PhotoId.ToString()))
+                </a>               
+                @foreach (var like in ViewBag.Likes)
                 {
-                    <p class="job-role">
-                        <img src="Content/liked.png" alt="" /> Like +<span class="like">@photo.Likes</span>
-                    </p>
+                    if (like.PhotoId == photo.PhotoId && like.UserId.Equals(User.Identity.GetUserId()))
+                    {
+                        isLiked = true;
+                        <a href="~/Home/Like?photoId=@photo.PhotoId">
+                            <p class="job-role">
+                                <img src="Content/liked.png" alt="" /> Like +<span class="like">@photo.Likes</span>
+                            </p>
+                        </a>
+                    }
                 }
-                else
+                @if(!isLiked)
                 {
                     <a href="~/Home/Like?photoId=@photo.PhotoId">
                         <p class="job-role">

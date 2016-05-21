@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace Octopus_project.Models
 {
@@ -15,6 +11,8 @@ namespace Octopus_project.Models
         }
 
         public DbSet<Photo> Photos { set; get; }
+
+        public DbSet<Like> Likes { set; get; }
 
         public static ApplicationDbContext Create()
         {

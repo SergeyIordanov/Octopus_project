@@ -24,9 +24,9 @@ namespace Octopus_project.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Likes = "";
-            if (Session["Likes"] != null)
-                ViewBag.Likes = Session["Likes"];
+            ViewBag.Likes = db.Likes.ToList();
+            //if (Session["Likes"] != null)
+            //ViewBag.Likes = Session["Likes"];
             List<Photo> model = db.Photos.ToList();
             model.Reverse();
             return View(model);
@@ -105,30 +105,63 @@ namespace Octopus_project.Controllers
                 });
             db.SaveChanges();
             return RedirectToAction("Photos");
-        }         
+        }
+
+        //public ActionResult Like(int? photoId)
+        //{
+        //    if (photoId != null)
+        //    {
+        //        if (Session["Likes"] != null)
+        //            if (SessionValuesParser.FindIdFromLikesString(Session["Likes"].ToString(), (int)photoId))
+        //            {
+        //                return RedirectToAction("Index");
+        //            }
+        //        foreach (Photo photo in db.Photos)
+        //            if (photoId == photo.PhotoId)
+        //            {
+        //                if (Session["Likes"] != null)
+        //                {
+        //                    Session["Likes"] = Session["Likes"].ToString() + "|" + photoId;
+        //                }
+        //                else
+        //                    Session["Likes"] = photoId.ToString();
+        //                photo.Likes++;
+        //            }
+        //        db.SaveChanges();
+        //    }
+        //    return RedirectToAction("Index");
+        //}
 
         public ActionResult Like(int? photoId)
         {
-            if (photoId != null)
+            if (photoId != null && User.Identity.GetUserId() != null)
             {
-                if (Session["Likes"] != null)
-                    if (SessionValuesParser.FindIdFromLikesString(Session["Likes"].ToString(), (int)photoId))
-                    {
-                        return RedirectToAction("Index");
-                    }
+                Photo currentPhoto = null;
                 foreach (Photo photo in db.Photos)
-                    if (photoId == photo.PhotoId)
+                {
+                    if (photo.PhotoId == photoId)
+                        currentPhoto = photo;
+                }
+                if (currentPhoto != null)
+                {
+                    bool isliked = false;
+                    foreach (Like like in db.Likes)
                     {
-                        if (Session["Likes"] != null)
+                        if (like.PhotoId == currentPhoto.PhotoId && like.UserId.Equals(User.Identity.GetUserId()))
                         {
-                            Session["Likes"] = Session["Likes"].ToString() + "|" + photoId;
+                            currentPhoto.Likes--;
+                            db.Likes.Remove(like);
+                            isliked = true;
                         }
-                        else
-                            Session["Likes"] = photoId.ToString();
-                        photo.Likes++;
                     }
-                db.SaveChanges();
+                    if (!isliked)
+                    {
+                        currentPhoto.Likes++;
+                        db.Likes.Add(new Like() { PhotoId = currentPhoto.PhotoId, UserId = User.Identity.GetUserId() });
+                    }
+                }
             }
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

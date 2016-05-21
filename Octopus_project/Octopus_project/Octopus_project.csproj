@@ -181,10 +181,15 @@
     <Compile Include="Migrations\201605191550079_AddPhotoTable.Designer.cs">
       <DependentUpon>201605191550079_AddPhotoTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605211651080_AddLikeTable.cs" />
+    <Compile Include="Migrations\201605211651080_AddLikeTable.Designer.cs">
+      <DependentUpon>201605211651080_AddLikeTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Like.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -324,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605191550079_AddPhotoTable.resx">
       <DependentUpon>201605191550079_AddPhotoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605211651080_AddLikeTable.resx">
+      <DependentUpon>201605211651080_AddLikeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

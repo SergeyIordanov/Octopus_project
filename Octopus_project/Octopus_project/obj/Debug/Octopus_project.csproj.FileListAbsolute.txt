@@ -70,3 +70,4 @@ C:\1Sergey\4ProjectsInGit\Locals\Octopus\Octopus_project\Octopus_project\obj\Deb
 C:\1Sergey\4ProjectsInGit\Locals\Octopus\Octopus_project\Octopus_project\obj\Debug\Octopus_project.Migrations.AddUserFields.resources
 C:\1Sergey\4ProjectsInGit\Locals\Octopus\Octopus_project\Octopus_project\obj\Debug\Octopus_project.csproj.GenerateResource.Cache
 C:\1Sergey\4ProjectsInGit\Locals\Octopus\Octopus_project\Octopus_project\obj\Debug\Octopus_project.Migrations.AddPhotoTable.resources
+C:\1Sergey\4ProjectsInGit\Locals\Octopus\Octopus_project\Octopus_project\obj\Debug\Octopus_project.Migrations.AddLikeTable.resources
