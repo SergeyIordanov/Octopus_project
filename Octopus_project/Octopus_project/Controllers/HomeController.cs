@@ -27,7 +27,9 @@ namespace Octopus_project.Controllers
             ViewBag.Likes = "";
             if (Session["Likes"] != null)
                 ViewBag.Likes = Session["Likes"];
-            return View(db.Photos.ToList());
+            List<Photo> model = db.Photos.ToList();
+            model.Reverse();
+            return View(model);
         }
 
         [HttpPost]
