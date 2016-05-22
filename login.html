@@ -62,9 +62,7 @@
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
     <style>
-        .no-left {
-            float: none !important;
-        }
+
     </style>
 </head>
 <body>
@@ -78,94 +76,25 @@
     </div>
     <div class="clear"></div>
 </header>
-<form action="#" method="post" enctype="multipart/form-data">
-    <div class="registration-form">
+<form action="#" method="post">
+    <div class="login-form">
 
-        <h1 align="center">Registration form</h1>
+        <h1 align="center">Login page</h1>
 
         <h1 id="errors" style="text-align: center; color: red; font-weight: 200"></h1> <!-- For errors -->
 
-        <div class="grid-12">
-            <input type="email" placeholder="Your email" class="standart-input middle-input"/>
-        </div>
-        <div class="grid-6"><input class="standart-input middle-input" placeholder="Name" type="text"/></div>
-        <div class="grid-6"><input class="standart-input middle-input" placeholder="Surname" type="text"/></div>
-
-        <div class="grid-6"><input class="standart-input middle-input" placeholder="Password" type="text"/></div>
-        <div class="grid-6"><input class="standart-input middle-input" placeholder="Confirm password" type="text"/>
-        </div>
-
-        <div class="grid-12">
-            <div class="standart-input">
-                <div style="position: relative; top: 8px;" class="grid-2">Avatar</div>
-                <div class="grid-7"><input type="file"/></div>
-                <div class="grid-3">
-                    <div id="imgLoadProgress"></div>
-                </div>
-                <div class="clear"></div>
+        <div class="container">
+            <div class="grid-12"><input type="email" placeholder="Email" class="standart-input middle-input"/></div>
+            <div class="grid-12"><input type="password" placeholder="Password" class="standart-input middle-input"/>
             </div>
-        </div>
-
-        <div class="grid-12"> <!-- Change to input to enable percentage-->
-            <!--<input id="submitButton" class="standart-input middle-input standart-button" type="button" value="Register"/>-->
-            <input type="submit" id="submitButton" class="standart-input middle-input standart-button" type="button"
-                   value="Register"/>
+            <div class="grid-12">Remember me: <input type="checkbox"/></div>
+            <div class="grid-12"><input value="Login" class="standart-input standart-button middle-input"
+                                        type="submit"/></div>
         </div>
     </div>
 </form>
 <script>
-    window.bar = new ProgressBar.Line('#imgLoadProgress', {
-        strokeWidth: 4,
-        easing: 'easeInOut',
-        duration: 1400,
-        color: '#FFEA82',
-        trailColor: '#eee',
-        trailWidth: 1,
-        svgStyle: {width: '98%', height: '100%'},
-        text: {
-            style: {
-                // Text color.
-                // Default: same as stroke color (options.color)
-                color: '#999',
-                position: 'relative',
-                right: '0',
-                top: '10px',
-                padding: 0,
-                margin: 0,
-                transform: null
-            },
-            autoStyleContainer: false
-        },
-        from: {color: '#FFEA82'},
-        to: {color: '#ED6A5A'},
-        step: function (state, bar) {
-            bar.setText(Math.round(bar.value() * 100) + ' %');
-        }
-    });
 
-    $('#submitButton').click(function () {
-        $.ajax({
-            xhr: function () {
-                var xhr = new window.XMLHttpRequest();
-                xhr.upload.addEventListener("progress", function (evt) {
-                    if (evt.lengthComputable) {
-                        var percentComplete = evt.loaded / evt.total;
-                        percentComplete = parseInt(percentComplete * 100);
-                        console.log(percentComplete);
-
-                        bar.set(percentComplete);
-                    }
-                }, false);
-                return xhr;
-            },
-            url: $('form').attr('action'),
-            type: 'POST',
-            data: $('form').serialize(),
-            success: function (result) {
-                console.log(result);
-            }
-        });
-    })
 </script>
 </body>
 </html>
