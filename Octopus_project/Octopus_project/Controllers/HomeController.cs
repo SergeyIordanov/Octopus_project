@@ -17,7 +17,6 @@ namespace Octopus_project.Controllers
 
         public HomeController()
         {
-            //var userId = User.Identity.GetUserId();
             db = new ApplicationDbContext();
             ViewBag.Error = "";
         }
@@ -25,8 +24,6 @@ namespace Octopus_project.Controllers
         public ActionResult Index()
         {
             ViewBag.Likes = db.Likes.ToList();
-            //if (Session["Likes"] != null)
-            //ViewBag.Likes = Session["Likes"];
             List<Photo> model = db.Photos.ToList();
             model.Reverse();
             return View(model);
@@ -107,31 +104,6 @@ namespace Octopus_project.Controllers
             return RedirectToAction("Photos");
         }
 
-        //public ActionResult Like(int? photoId)
-        //{
-        //    if (photoId != null)
-        //    {
-        //        if (Session["Likes"] != null)
-        //            if (SessionValuesParser.FindIdFromLikesString(Session["Likes"].ToString(), (int)photoId))
-        //            {
-        //                return RedirectToAction("Index");
-        //            }
-        //        foreach (Photo photo in db.Photos)
-        //            if (photoId == photo.PhotoId)
-        //            {
-        //                if (Session["Likes"] != null)
-        //                {
-        //                    Session["Likes"] = Session["Likes"].ToString() + "|" + photoId;
-        //                }
-        //                else
-        //                    Session["Likes"] = photoId.ToString();
-        //                photo.Likes++;
-        //            }
-        //        db.SaveChanges();
-        //    }
-        //    return RedirectToAction("Index");
-        //}
-
         public ActionResult Like(int? photoId)
         {
             if (photoId != null && User.Identity.GetUserId() != null)
@@ -161,14 +133,6 @@ namespace Octopus_project.Controllers
                     }
                 }
             }
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult ClearDB()
-        {
-            foreach (Photo photo in db.Photos)
-                db.Photos.Remove(photo);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
