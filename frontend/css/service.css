@@ -1,0 +1,42 @@
+section .container-12 {
+    margin-top: 110px;;
+}
+
+.container-12 .appendix + .mailing-list input[type=text], .standart-input {
+    border: 2px solid #f7cc4b;
+    background: transparent;
+/ / color : #f7cc4b;
+    text-indent: 10px;
+    border-radius: 4px;
+}
+
+.container-12 .appendix + .mailing-list input[type=submit] {
+    background: #f7cc4b;
+    border: 2px solid #f7cc4b;
+    margin-top: 20%;
+}
+
+#uploadLabel {
+
+}
+
+.grid-6 .text-block-left {
+/ / margin-right : 50 %;
+}
+
+.container-12 .grid-6 .uploadImage {
+    width: 250px;
+}
+
+.portfolio-item .job-role {
+    color: white;
+}
+
+.portfolio-item .job-role img {
+    width: 30px;
+}
+
+.portfolio-item a:link {
+    color: white;
+    text-decoration: none;
+}
