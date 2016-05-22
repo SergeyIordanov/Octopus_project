@@ -38,6 +38,7 @@
 }
 
 a.standart-input {
+    text-decoration: none;
     display: inline-block;
 }
 
@@ -128,3 +129,4 @@ a.large-input {
         display: none;
     }
 }
+
