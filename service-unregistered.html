@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ocupus</title>
+    <meta name="description" content="Octopus idea">
+    <meta name="author" content="Octopus team">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image" content="one.jpg"/>
+    <meta property="og:title" content="Octopus - future photochallenge service"/>
+    <meta property="og:description" content="The idea is to create something new and  special..."/>
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/rwdgrid.css">
+    <link rel="stylesheet" href="css/skew.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/cbp-fwslider.css">
+    <link rel="stylesheet" href="css/responsive-nav.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/prettyPhoto.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mediaqueries.css">
+    <link rel="stylesheet" href="css/service.css">
+    <link rel="stylesheet" href="css/login-registration.css"/>
+    <link rel="stylesheet" href="css/personalization.css"/>
+
+    <!--CSS for codrops(Upload button)-->
+    <link rel="stylesheet" href="css/codrops/component.css">
+    <link rel="stylesheet" href="css/codrops/normalize.css">
+
+    <!--CSS for NotifyMe(Notifications)-->
+    <link rel="stylesheet" type="text/css" href="css/notifyme/notifyme.css"/>
+
+    <!--Javascript-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/jquery.cbpFWSlider.js"></script>
+    <script src="js/responsive-nav.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="js/jquery.counterup.js"></script>
+    <script src="js/jquery.waypoints.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/progressbar.js"></script>
+
+    <!--Javascript for notifyMe-->
+    <script type="text/javascript" src="js/notifyme/notifyme.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <style>
+        .no-left {
+            float: none !important;
+        }
+    </style>
+</head>
+
+<body>
+<script>
+    $(function () {
+        $('#cbp-fwslider').cbpFWSlider({
+            // default transition speed (ms)
+            speed: 1000,
+            // default transition easing
+            easing: 'ease'
+        });
+    });
+</script>
+<header class="header">
+    <div class="top-bar">
+        <div class="container">
+            <div class="site-title">
+                <img src="images/site-title.png" alt="site-title"/>
+                <!--<a href="#">Skewed</a>-->
+            </div>
+            <nav class="nav-collapse">
+
+                <!--Main menu-->
+                <ul class="top-nav">
+                    <li><a href="#">Main</a></li>
+                    <li><a href="#uploadPhoto">Upload</a></li>
+                    <li><a href="#discoveryPhoto">Discvoer</a></li>
+                    <li><a href="#howItWorks">How it works</a></li>
+                    <li><a href="#Subscribe">Subscribe</a></li>
+
+                </ul>
+            </nav>
+            <script>
+                var navigation = responsiveNav(".nav-collapse");
+            </script>
+        </div>
+    </div>
+</header>
+
+
+<!--start of dynamic part-->
+<!--Section for Uppload photos-->
+<a name="uploadPhoto"></a>
+<section>
+    <div style="margin-top: 100px" class="container">
+        <h1 align="center">To add your own photos you have to login or register</h1>
+
+        <div class="grid-5">
+            <div class="box-for-anonymous-user">
+                <div class="big-side">
+                    <a class="standart-input standart-button large-input" href="#">Login</a></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="show-on-small">
+            <hr/>
+        </div>
+        <div class="grid-d-2 remove-on-small">
+            <div class="box-for-anonymous-user">
+                <div class="big-side">
+                    <div class="verical-hr"></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-5">
+            <div class="box-for-anonymous-user">
+                <div class="big-side">
+                    <a class="standart-input standart-button large-input" href="#">Register</a></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End of dynamic part-->
+<!-- Load progress bar -->
+<!--Discovery photo section(Maybe rename this section)-->
+<a name="discoveryPhoto"></a>
+<section class="alt-background skew-top-ccw skew-bottom-ccw">
+    <div class="container-12">
+        <script>
+            $(document).ready(function () {
+                $("a[rel^='prettyPhoto']").prettyPhoto({
+                    deeplinking: false,
+                    social_tools: false
+                });
+            });
+        </script>
+        <div class="text-block-center">
+            <h2>Discover the photoes</h2>
+
+            <p class="subheading">We are waiting for you likes</p>
+        </div>
+    </div>
+    <div id="owl-portfolio">
+        <!--This is the section for photo. You must add every photo by repeating this section with loop(for)-->
+        <div class="portfolio-item animated flipInX wow" data-wow-delay="500ms">
+            <a href="images/project-1.jpg" rel="prettyPhoto"><img src="images/project-1.jpg" alt=""/>
+                <span class="zoom-icon fa fa-search"></span></a>
+            <a href="#">
+                <p class="job-role">
+                    <img src="like.png" alt=""/> Like +<span>32</span>
+                </p>
+            </a>
+            <h4>Jonathan Smith</h4>
+        </div>
+        <!--The end of section-->
+    </div>
+
+
+    <!--Some script for image annimation! DONT TOUCH and DONT CHANGE ITS POSITION-->
+    <script>
+        $(document).ready(function () {
+            $("#owl-portfolio").owlCarousel({
+                items: 4
+            });
+        });
+    </script>
+    <div class="clear"></div>
+</section>
+
+
+<!--How It Works? section-->
+<a name="howItWorks"></a>
+<section>
+    <div class="container-12">
+        <div class="text-block-center">
+            <h2>How it works?</h2>
+
+            <p class="subheading">Just 3 steps</p>
+
+            <p>1)The user creates the challenge</p>
+
+            <p>2)You meet it by publishing the photo</p>
+
+            <p>3)The winner will be chosen by community</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+</section>
+
+
+<!--Subscribe section-->
+<a name="Subscribe"></a>
+<section class="alt-background skew-top-cw" style="padding-bottom: 80px;">
+    <div class="container-12">
+        <div class="text-block-center">
+            <h2>Keep Up To Date</h2>
+
+            <p class="subheading">Subscribe to our mailing list</p>
+        </div>
+        <form class="mailing-list">
+            <div class="grid-2">
+                &nbsp;
+            </div>
+            <div class="grid-3">
+                <input class="inverse-color-input" type="text" name="" placeholder="Your name" required/>
+            </div>
+            <div class="grid-3">
+                <input class="inverse-color-input" type="text" name="" placeholder="Email address" required/>
+            </div>
+            <div class="grid-2">
+                <input class="inverse-button" type="submit" name="" value="Subscribe"/>
+            </div>
+            <div class="grid-2">
+                &nbsp;
+            </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container-12">
+        <ul class="social">
+            <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=ocupus.ucoz.net" title="Facebook"
+                   class="fa fa-facebook"></a>
+            </li>
+            <li>
+                <a href="https://twitter.com/share?url=ocupus.ucoz.net" title="Twitter" class="fa fa-twitter"></a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/share?url=ocupus.ucoz.net" title="Google+" class="fa fa-google"></a>
+            </li>
+            <li>
+                <a href="#" title="Instagram" class="fa fa-instagram"></a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <p>Copyright 2015 <em>Octopus</em>. All Rights Reserved</p>
+    </div>
+
+
+</footer>
+
+
+<!--This is the example of script for notifications. For details find in google "NotifyMe" or ask Alexey Budyanskiy:)-->
+<script type="text/javascript">
+    $('.error').on('click', function () {
+        $(this).notifyMe(
+                'bottom',
+                'error',
+                'Fill all fields',
+                'You must fill all fields before uploading photo',
+                200,
+                1500
+        );
+    });
+</script>
+
+
+</body>
+
+</html>

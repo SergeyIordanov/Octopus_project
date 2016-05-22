@@ -8,10 +8,10 @@
     <meta name="author" content="Octopus team">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:image" content="one.jpg" />
-    <meta property="og:title" content="Octopus - future photochallenge service" />
-    <meta property="og:description" content="The idea is to create something new and  special..." />
-    
+    <meta property="og:image" content="one.jpg"/>
+    <meta property="og:title" content="Octopus - future photochallenge service"/>
+    <meta property="og:description" content="The idea is to create something new and  special..."/>
+
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
 
@@ -25,17 +25,19 @@
     <link rel="stylesheet" href="css/owl.theme.css">
     <link rel="stylesheet" href="css/owl.transitions.css">
     <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/prettyPhoto.css" />
+    <link rel="stylesheet" href="css/prettyPhoto.css"/>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mediaqueries.css">
     <link rel="stylesheet" href="css/service.css">
+    <link rel="stylesheet" href="css/login-registration.css"/>
+    <link rel="stylesheet" href="css/personalization.css"/>
 
     <!--CSS for codrops(Upload button)-->
     <link rel="stylesheet" href="css/codrops/component.css">
     <link rel="stylesheet" href="css/codrops/normalize.css">
 
     <!--CSS for NotifyMe(Notifications)-->
-    <link rel="stylesheet" type="text/css" href="css/notifyme/notifyme.css" />
+    <link rel="stylesheet" type="text/css" href="css/notifyme/notifyme.css"/>
 
     <!--Javascript-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -50,15 +52,16 @@
     <script src="js/jquery.counterup.js"></script>
     <script src="js/jquery.waypoints.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/progressbar.js"></script>
 
     <!--Javascript for notifyMe-->
     <script type="text/javascript" src="js/notifyme/notifyme.js"></script>
     <!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<![endif]-->
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
     <style>
         .no-left {
             float: none !important;
@@ -67,7 +70,6 @@
 </head>
 
 <body>
-
     <script>
         $(function () {
             $('#cbp-fwslider').cbpFWSlider({
@@ -105,8 +107,8 @@
     </header>
 
 
-
-    <!--Section for Uppload photoes-->
+    <!--start of dynamic part-->
+    <!--Section for Uppload photos-->
     <a name="uploadPhoto"></a>
     <section>
 
@@ -115,9 +117,8 @@
                 <div class="appendix"></div>
                 <form class="mailing-list">
 
-                    <div class="grid-6 no-left">
+                    <div class="grid-12 no-left">
                         <h2>Upload photo</h2>
-                        <p class="subheading">Just write your name, choose the photo by clicking on uppload button and click "Send"</p>
                     </div>
 
                     <!--Div for uppload button (Codrops)-->
@@ -132,6 +133,7 @@
                     </div>
 
                     <div>
+                        <div id="imgLoadProgress"></div>
                         <input style="margin-top: 10%" type="submit" name="" value="Send" />
                     </div>
 
@@ -140,7 +142,38 @@
             </div>
         </div>
     </section>
-
+    <!--End of dynamic part-->
+    <!-- Load progress bar -->
+    <script>
+        window.bar = new ProgressBar.Line('#imgLoadProgress', {
+            strokeWidth: 4,
+            easing: 'easeInOut',
+            duration: 1400,
+            color: '#FFEA82',
+            trailColor: '#eee',
+            trailWidth: 1,
+            svgStyle: {width: '98%', height: '100%'},
+            text: {
+                style: {
+                    // Text color.
+                    // Default: same as stroke color (options.color)
+                    color: '#999',
+                    position: 'relative',
+                    right: '0',
+                    top: '10px',
+                    padding: 0,
+                    margin: 0,
+                    transform: null
+                },
+                autoStyleContainer: false
+            },
+            from: {color: '#FFEA82'},
+            to: {color: '#ED6A5A'},
+            step: function (state, bar) {
+                bar.setText(Math.round(bar.value() * 100) + ' %');
+            }
+        });
+    </script>
     <!--Discovery photo section(Maybe rename this section)-->
     <a name="discoveryPhoto"></a>
     <section class="alt-background skew-top-ccw skew-bottom-ccw">
@@ -195,10 +228,10 @@
             <div class="text-block-center">
                 <h2>How it works?</h2>
                 <p class="subheading">Just 3 steps</p>
-                <p>1)The speaker creates the challenge</p>
+
+                <p>1)The user creates the challenge</p>
                 <p>2)You meet it by publishing the photo</p>
                 <p>3)The winner will be chosen by community</p>
-                <a href="#uploadPhoto" class="button">Try it now!</a>
             </div>
             <div class="clear"></div>
         </div>
@@ -219,13 +252,13 @@
                     &nbsp;
                 </div>
                 <div class="grid-3">
-                    <input type="text" name="" placeholder="Your name" required/>
+                    <input class="inverse-color-input" type="text" name="" placeholder="Your name" required/>
                 </div>
                 <div class="grid-3">
-                    <input type="text" name="" placeholder="Email address" required/>
+                    <input class="inverse-color-input" type="text" name="" placeholder="Email address" required/>
                 </div>
                 <div class="grid-2">
-                    <input type="submit" name="" value="Subscribe" />
+                    <input class="inverse-button" type="submit" name="" value="Subscribe"/>
                 </div>
                 <div class="grid-2">
                     &nbsp;

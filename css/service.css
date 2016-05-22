@@ -3,15 +3,11 @@ section .container-12{
 }
 
 .container-12 .appendix + .mailing-list input[type=text], .standart-input {
-	border: 2px solid #f7cc4b;
-	background: transparent;
+    border: 2px solid #f7cc4b;
+    background: transparent;
 / / color : #f7cc4b;
-	text-indent: 10px;
-	border-radius: 4px;
-}
-
-.standart-input {
-    width: 100%;
+    text-indent: 10px;
+    border-radius: 4px;
 }
 
 .container-12 .appendix+.mailing-list input[type=submit] {

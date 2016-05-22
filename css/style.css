@@ -583,22 +583,6 @@ blockquote span {
 	border-radius: 4px;
 }
 
-.mailing-list input[type=button], .mailing-list input[type=submit] {
-	border: 2px solid #222;
-	width: 100%;
-	background: #222;
-	color: #fff;
-	border-radius: 4px;
-	margin: 0 auto;
-}
-
-.mailing-list input[type=button]:hover, .mailing-list input[type=submit]:hover {
-	background: #fff;
-	border: 2px solid #fff;
-	color: #f7cc4b;
-}
-
-
 /*Footer*/
 
 .footer {
