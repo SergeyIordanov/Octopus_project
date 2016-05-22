@@ -17,4 +17,4 @@ Sergey Iordanov - sergey.ior97@gmail.com
 Apukhtin Vladyslav - pandalmail@gmail.com  
 Budyanskiy Alexey - alexeybudyanskiy2501@gmail.com  
 
-Copyright 2016 Octopus. All Rights Reserved
+Copyright 2016 Octopus. All Rights Reserved.
