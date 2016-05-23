@@ -85,8 +85,8 @@ a.large-input {
 
 .inverse-button:hover {
     background: #fff;
-    border: 2px solid #fff;
-    color: #f7cc4b;
+    border: 1px solid #000;
+    color: #000;
 }
 
 .inverse-color-input {
@@ -111,7 +111,7 @@ a.large-input {
     margin-top: -150px;
 }
 
-.verical-hr {
+.vertical-hr {
     border-left: 1px solid #000;
     height: 100%;
     width: 1px;
@@ -133,4 +133,28 @@ a.large-input {
 .back-button {
     position: relative;
     left: -120px;
+}
+
+.account-block {
+    margin-top: 50px;
+}
+
+.avatar {
+    width: 100%;
+}
+
+.avatar img {
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.account-information {
+    font-weight: 200;
+}
+
+.change-password-block {
+    height: 100%;
 }
