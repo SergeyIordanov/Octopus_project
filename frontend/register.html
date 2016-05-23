@@ -80,7 +80,10 @@
 </header>
 <form action="#" method="post" enctype="multipart/form-data">
     <div class="registration-form">
-
+        <div class="grid-3 grid-m-4">
+            <a class="standart-button standart-input middle-input" href="#"> < Back </a>
+        </div>
+        <div class="clear"></div>
         <h1 align="center">Registration form</h1>
 
         <h1 id="errors" style="text-align: center; color: red; font-weight: 200"></h1> <!-- For errors -->
@@ -98,7 +101,7 @@
         <div class="grid-12">
             <div class="standart-input">
                 <div style="position: relative; top: 8px;" class="grid-2">Avatar</div>
-                <div class="grid-7"><input type="file"/></div>
+                <div style="overflow: hidden" class="grid-7"><input type="file"/></div>
                 <div class="grid-3">
                     <div id="imgLoadProgress"></div>
                 </div>

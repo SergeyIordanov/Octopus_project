@@ -130,3 +130,7 @@ a.large-input {
     }
 }
 
+.back-button {
+    position: relative;
+    left: -120px;
+}
