@@ -89,6 +89,10 @@ a.large-input {
     color: #000;
 }
 
+.black-color-input {
+    border: 1px solid black;
+}
+
 .inverse-color-input {
     border: 2px solid #fff;
     color: #fff;
