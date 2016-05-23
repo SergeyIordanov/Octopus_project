@@ -150,7 +150,7 @@
     window.bar = new ProgressBar.Line('#imgLoadProgress', {
         strokeWidth: 4,
         easing: 'easeInOut',
-        duration: 1400,
+        duration: 3000,
         color: '#FFEA82',
         trailColor: '#eee',
         trailWidth: 1,
@@ -174,6 +174,10 @@
         step: function (state, bar) {
             bar.setText(Math.round(bar.value() * 100) + ' %');
         }
+    });
+
+    $('#file-5').on('change', function () {
+        bar.animate(1);
     });
 </script>
 <!--Discovery photo section(Maybe rename this section)-->

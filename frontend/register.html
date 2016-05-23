@@ -101,7 +101,7 @@
         <div class="grid-12">
             <div class="standart-input">
                 <div style="position: relative; top: 8px;" class="grid-2">Avatar</div>
-                <div style="overflow: hidden" class="grid-7"><input type="file"/></div>
+                <div style="overflow: hidden" class="grid-7"><input id="avatar" type="file"/></div>
                 <div class="grid-3">
                     <div id="imgLoadProgress"></div>
                 </div>
@@ -120,7 +120,7 @@
     window.bar = new ProgressBar.Line('#imgLoadProgress', {
         strokeWidth: 4,
         easing: 'easeInOut',
-        duration: 1400,
+        duration: 2500,
         color: '#FFEA82',
         trailColor: '#eee',
         trailWidth: 1,
@@ -146,7 +146,7 @@
         }
     });
 
-    $('#submitButton').click(function () {
+    $('#avatar').click(function () {
         $.ajax({
             xhr: function () {
                 var xhr = new window.XMLHttpRequest();
@@ -168,7 +168,11 @@
                 console.log(result);
             }
         });
-    })
+    });
+
+    $('#avatar').on('change', function () {
+        bar.animate(1);
+    });
 </script>
 </body>
 </html>
