@@ -47,7 +47,6 @@
     /* 4px */
 }
 
-
 /* style 1 */
 
 .inputfile-1 + label {
@@ -60,7 +59,6 @@
 .inputfile-1 + label:hover {
     background-color: #722040;
 }
-
 
 /* style 2 */
 
@@ -75,7 +73,6 @@
     color: #722040;
 }
 
-
 /* style 3 */
 
 .inputfile-3 + label {
@@ -87,7 +84,6 @@
 .inputfile-3 + label:hover {
     color: #722040;
 }
-
 
 /* style 4 */
 
@@ -122,7 +118,6 @@
     height: 100%;
     fill: #f1e5e6;
 }
-
 
 /* style 5 */
 
@@ -184,7 +179,6 @@
     fill: #f1e5e6;
 }
 
-
 /* style 6 */
 
 .inputfile-6 + label {
@@ -233,7 +227,7 @@
 }
 
 @media screen and (max-width: 50em) {
-	.inputfile-6 + label strong {
-		display: block;
-	}
+    .inputfile-6 + label strong {
+        display: block;
+    }
 }

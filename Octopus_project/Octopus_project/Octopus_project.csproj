@@ -205,12 +205,15 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cbp-fwslider.css" />
+    <Content Include="Content\circle.png" />
     <Content Include="Content\component.css" />
     <Content Include="Content\demo.css" />
+    <Content Include="Content\facebook.png" />
     <Content Include="Content\favicon.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\like.png" />
     <Content Include="Content\liked.png" />
+    <Content Include="Content\login-registration.css" />
     <Content Include="Content\mediaqueries.css" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\notifyme.css" />
@@ -220,6 +223,8 @@
     <Content Include="Content\owl.theme.css" />
     <Content Include="Content\owl.transitions.css" />
     <Content Include="Content\parallax.css" />
+    <Content Include="Content\personalization.css" />
+    <Content Include="Content\photo.png" />
     <Content Include="Content\prettyPhoto.css" />
     <Content Include="Content\responsive-nav.css" />
     <Content Include="Content\rwdgrid.css" />
@@ -236,6 +241,7 @@
     <Content Include="Content\skew.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\Three.jpg" />
+    <Content Include="Content\touchscreen.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
