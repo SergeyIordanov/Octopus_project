@@ -104,7 +104,7 @@ namespace Octopus_project.Controllers
             return RedirectToAction("Photos");
         }
 
-        public ActionResult Like(int? photoId)
+        public void Like(int? photoId)
         {
             if (photoId != null && User.Identity.GetUserId() != null)
             {
@@ -134,7 +134,7 @@ namespace Octopus_project.Controllers
                 }
             }
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return;
         }
     }
 }

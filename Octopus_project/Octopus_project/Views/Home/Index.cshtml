@@ -203,24 +203,24 @@ else
                         if (like.PhotoId == photo.PhotoId && like.UserId.Equals(User.Identity.GetUserId()))
                         {
                             isLiked = true;
-                            <a href="~/Home/Like?photoId=@photo.PhotoId">
-                                <p class="job-role">
-                                    <img src="Content/liked.png" alt="" /> Like +<span class="like">@photo.Likes</span>
-                                </p>
-                            </a>
+                                <a data-ajax="true" href="/Home/Like?photoId=@photo.PhotoId" onclick="Like(@photo.PhotoId)">
+                                    <p class="job-role">
+                                        <img src="Content/liked.png" alt="" id="image_@photo.PhotoId"/> Like +<span class="like" id="like_@photo.PhotoId">@photo.Likes</span>
+                                    </p>
+                                </a>
                         }
                     }
                     if (!isLiked)
                     {
-                        <a href="~/Home/Like?photoId=@photo.PhotoId">
+                        <a data-ajax="true" href="/Home/Like?photoId=@photo.PhotoId" onclick="Like(@photo.PhotoId)">
                             <p class="job-role">
-                                <img src="Content/like.png" alt="" /> Like +<span>@photo.Likes</span>
+                                <img src="Content/like.png" alt="" id="image_@photo.PhotoId"/> Like +<span id="like_@photo.PhotoId">@photo.Likes</span>
                             </p>
                         </a>
                     }
                 }
-                <h4>@photo.PublisherSurname @photo.PublisherName</h4>
-            </div>
+                                <h4>@photo.PublisherSurname @photo.PublisherName</h4>
+</div>
         }
     </div>
 
