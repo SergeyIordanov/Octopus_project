@@ -262,6 +262,7 @@
     <Content Include="fonts\responsivenav.ttf" />
     <Content Include="fonts\responsivenav.woff" />
     <Content Include="Scripts\.DS_Store" />
+    <None Include="Properties\PublishProfiles\sergey_iordanov.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom-file-input.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -1,0 +1,67 @@
+﻿@using Octopus_project.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+<header class="header">
+    <div style="position: relative; padding: 0px;" class="top-bar">
+        <a href="/">
+            <div style="width: 200px; position:absolute; left: 50%; margin-left: -100px" class="site-title">
+                <img style="width: 100%;" src="../../Content/site-title.png" alt="site-title" />
+            </div>
+        </a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="login-form">
+
+        <div class="container">
+            <div class="grid-4 grid-m-5">
+                @Html.ActionLink(" < Back ", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "standart-button standart-input middle-input" })
+                <!--<a class="standart-button standart-input middle-input" href="#"> < Back </a>-->
+            </div>
+        </div>
+        <div class="clear"></div>
+        <h1 align="center">Login page</h1>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger", align = "center" })
+        @*<h1 id="errors" style="text-align: center; color: red; font-weight: 200"></h1>*@ <!-- For errors -->
+
+        <div class="container">
+            <div class="grid-12">
+                @Html.TextBoxFor(m => m.Email, new { @class = "standart-input middle-input" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                @*<input type="email" placeholder="Email" class="standart-input middle-input" />*@
+            </div>
+            <div class="grid-12">
+                @Html.PasswordFor(m => m.Password, new { @class = "standart-input middle-input" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+               @* <input type="password" placeholder="Password" class="standart-input middle-input" />*@
+            </div>
+            <div class="grid-5 grid-m-5">Remember me: 
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @*<input type="checkbox" />*@
+            </div>
+            <div style="text-align: right;" class="grid-7 grid-m-7">
+                @Html.ActionLink(@"Register as a new
+                    user", "Register", "Account", routeValues: null, htmlAttributes: new { style = "color: black" })
+                @*<a style="color: black" href="#">
+                    Register as a new
+                    user
+                </a>*@
+            </div>
+            <div class="grid-12">
+                <input value="Login" class="standart-input standart-button middle-input"
+                       type="submit" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

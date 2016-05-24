@@ -1,0 +1,83 @@
+﻿@model Octopus_project.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<style>
+    .no-left {
+        float: none !important;
+    }
+</style>
+
+<header class="header">
+    <div style="position: relative; padding: 0px;" class="top-bar">
+        <a href="/">
+            <div style="width: 200px; position:absolute; left: 50%; margin-left: -100px" class="site-title">
+                <img style="width: 100%;" src="~/Content/site-title.png" alt="site-title" />
+            </div>
+        </a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="registration-form">
+        <div class="grid-3 grid-m-5">
+            @Html.ActionLink(" < Back ", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "standart-button standart-input middle-input" })
+            @*<a class="standart-button standart-input middle-input" href="#"> < Back </a>*@
+        </div>
+        <div class="clear"></div>
+        <h1 align="center">Registration form</h1>
+
+        @Html.ValidationSummary("", new { @class = "text-danger", align = "center" })
+        @*<h1 id="errors" style="text-align: center; color: red; font-weight: 200"></h1> <!-- For errors -->*@
+
+        <div class="grid-12">
+            @Html.TextBoxFor(m => m.Email, new { @class = "standart-input middle-input", placeholder = "Your email" })
+            @*<input type="email" placeholder="Your email" class="standart-input middle-input" />*@
+        </div>
+        <div class="grid-6">
+            @Html.TextBoxFor(m => m.Name, new { @class = "standart-input middle-input", placeholder = "Name" })
+            @*<input class="standart-input middle-input" placeholder="Name" type="text" />*@
+        </div>
+        <div class="grid-6">
+            @Html.TextBoxFor(m => m.Surname, new { @class = "standart-input middle-input", placeholder = "Surname" })            
+            @*<input class="standart-input middle-input" placeholder="Surname" type="text" />*@
+        </div>
+
+        <div class="grid-6">
+            @Html.PasswordFor(m => m.Password, new { @class = "standart-input middle-input", placeholder = "Password" })
+            @*<input class="standart-input middle-input" placeholder="Password" type="text" />*@
+        </div>
+        <div class="grid-6">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "standart-input middle-input", placeholder = "Confirm password" })
+            @*<input class="standart-input middle-input" placeholder="Confirm password" type="text" />*@
+        </div>
+
+        <div class="grid-12">
+            <div class="standart-input">
+                <div style="position: relative; top: 8px;" class="grid-2">Avatar</div>
+                <div style="overflow: hidden" class="grid-7">
+                    <input id="avatar" type="file" name="uploadImage"/>
+                </div>
+                <div class="grid-3">
+                    <div id="imgLoadProgress"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="grid-12">
+            <!-- Change to input to enable percentage-->
+            <!--<input id="submitButton" class="standart-input middle-input standart-button" type="button" value="Register"/>-->
+            <input type="submit" id="submitButton" class="standart-input middle-input standart-button" 
+                   value="Register" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
