@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="Content/style.css">
     <link rel="stylesheet" href="Content/mediaqueries.css">
     <link rel="stylesheet" href="Content/service.css">
+    <link rel="stylesheet" href="css/login-registration.css" />
+    <link rel="stylesheet" href="css/personalization.css" />
 
     <!--CSS for codrops(Upload button)-->
     <link rel="stylesheet" href="Content/component.css">
@@ -38,6 +40,7 @@
     <link rel="stylesheet" type="text/css" href="Content/notifyme.css" />
 
     <!--Javascript-->   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     <script src="Scripts/modernizr.custom.js"></script>
     <script src="Scripts/jquery.cbpFWSlider.js"></script>
@@ -63,7 +66,11 @@
     <!--[if lt IE 9]>
         <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]--> 
-    
+    <style>
+        .no-left {
+            float: none !important;
+        }
+    </style>
     
     @Scripts.Render("~/bundles/modernizr")  
 </head>
