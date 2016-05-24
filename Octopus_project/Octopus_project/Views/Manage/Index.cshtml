@@ -3,46 +3,58 @@
     ViewBag.Title = "Your account";
 }
 
-<h2>(Avatar here!) @ViewBag.Title.</h2>
+<header class="header">
+    <div style="position: relative; padding: 0px;" class="top-bar">
+        <a href="/">
+            <div style="width: 200px; position:absolute; left: 50%; margin-left: -100px" class="site-title">               
+                     <img style="width: 100%;" src="~/Content/site-title.png" alt="site-title" />
+            </div>
+        </a>
+    </div>
+    <div class="clear"></div>
+</header>
 
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div>
-    <hr />
-    <h4>Account information</h4>
-    <dl class="dl-horizontal">
-        <dt>Name:</dt>
-        <dd>
-            Test
-        </dd>
-        <dt>Surname:</dt>
-        <dd>
-            Test
-        </dd>
-        <dt>E-mail:</dt>
-        <dd>
-            Test
-        </dd>
-        <dt>Registration date:</dt>
-        <dd>
-            Test
-        </dd>
-    </dl>
-    <hr />
-    <h4>Change your account settings</h4>  
-    <dl class="dl-horizontal">
-        <dt>Password:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("Change your password", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("Create", "SetPassword")
-            }
-            ]
-        </dd>
+<div class="account-block">
+    <div class="container">
+        <div class="grid-4">
+            <div class="avatar">@Html.Raw("<img alt='Avatar' style = 'width: 70%; height: 70%' src =\"data:image/jpeg;base64," + Convert.ToBase64String(Model.Avatar) + "\" />")</div>
+        </div>
+        <div class="grid-8">
+            <div style="height: 150px;">
+                <h2 align="center" style="position: relative; top: 30%;">Your account</h2>
+            </div>
+        </div>
+        <div class="thin-hr"></div>
+        <div class="grid-12"><h1 align="center">Account information</h1></div>
+        <div class="account-information">
+            <div class="container">
+                <div class="grid-8">
+                    <div class="nest">
+                        <div class="grid-2">Name:</div>
+                        <div class="grid-10 info">@Model.Name</div>
+
+                        <div class="grid-2">Surname:</div>
+                        <div class="grid-10 info">@Model.Surname</div>
+
+                        <div class="grid-2">Email:</div>
+                        <div class="grid-10 info">@Model.Email</div>
+
+                        <div class="grid-2">Registration date:</div> <!-- Wtf? nahuya pol'zovatelyu ego data registracii? )) -->
+                        <div class="grid-10 info">@Model.RegistrationDate</div>
+                    </div>
+                </div>
+                <div class="grid-4">
+                    <div class="change-password-block">
+                        @Html.ActionLink("Change your password", "ChangePassword", routeValues: null, htmlAttributes: new { @class = "standart-input inverse-button large-input" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
         @*<dt>External Logins:</dt>
           <dd>
             @Model.Logins.Count [
@@ -108,6 +120,3 @@
         @*
         </dd>
         *@
-    </dl>
-    @Html.ActionLink("Back", "Index", "Home");
-</div>

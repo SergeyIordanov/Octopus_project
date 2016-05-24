@@ -16,8 +16,10 @@ namespace Octopus_project.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+        ApplicationDbContext db;
         public ManageController()
         {
+            db = new ApplicationDbContext();
         }
 
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -64,13 +66,29 @@ namespace Octopus_project.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+
+            ApplicationUser currentUser = new ApplicationUser();
+            foreach (ApplicationUser user in db.Users)
+            {
+                if (User.Identity.GetUserId().Equals(user.Id))
+                {
+                    currentUser = user;
+                    break;
+                }
+            }
+
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
                 TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
                 Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
+                Name = currentUser.Name,
+                Surname = currentUser.Surname,
+                Email = currentUser.Email,
+                RegistrationDate = currentUser.RegistrationDate.ToShortDateString(),
+                Avatar = currentUser.Avatar
             };
             return View(model);
         }

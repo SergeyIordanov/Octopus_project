@@ -12,6 +12,11 @@ namespace Octopus_project.Models
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string RegistrationDate { get; set; }
+        public byte[] Avatar { get; set; }
     }
 
     public class ManageLoginsViewModel
