@@ -51,29 +51,29 @@
         <div class="container-12">
             <div class="text-block-center">
                 <div class="appendix"></div>
-                <form class="mailing-list" method="post" enctype="multipart/form-data">
+                <form class="mailing-list">
 
-                    <div class="grid-6">
+                    <div class="grid-12 no-left">
                         <h2>Upload photo</h2>
-                        <p class="subheading">Just click this big red button, choose the photo and click "Send"</p>
                     </div>
 
                     <!--Div for uppload button (Codrops)-->
-                    <div class="box">
-                        <input type="file" accept="image/jpeg,image/png" required name="File" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple="">
+                    <div class="box ">
+                        <input type="file" accept="image/jpeg,image/png" required name="file" id="file-5"
+                               class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple="">
                         <label for="file-5" id="uploadLabel">
                             <figure>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                                     <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
                                 </svg>
-                            </figure> <span>Choose a file…</span>
+                            </figure>
+                            <span>Choose a file…</span>
                         </label>
                     </div>
-                    <div class="grid-6">
-                        <p class="subheading">@ViewBag.Error</p>
-                    </div>
-                    <div class="grid-2">
-                        <input type="submit" name="" value="Send" />
+
+                    <div>
+                        <div id="imgLoadProgress"></div>
+                        <input style="margin-top: 10%" type="submit" name="" value="Send" />
                     </div>
 
                 </form>
@@ -84,21 +84,78 @@
 }
 else
 {
+    <a name="uploadPhoto"></a>
     <section>
+        <div style="margin-top: 100px" class="container">
+            <h1 align="center">To add your own photos you have to login or register</h1>
 
-        <div class="container-12">
-            <div class="text-block-center">
-                <div class="appendix"></div>
-                    For adding your own photos just login or register:
-                    @Html.Partial("_LoginPartial")
-                <div class="clear"></div>
+            <div class="grid-5">
+                <div class="box-for-anonymous-user">
+                    <div class="big-side">
+                        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "standart-input standart-button large-input" })
+                       @* <a class="standart-input standart-button large-input" href="#">Login</a>*@
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="show-on-small">
+                <hr />
+            </div>
+            <div class="grid-2 remove-on-small">
+                <div class="box-for-anonymous-user">
+                    <div class="big-side">
+                        <div class="vertical-hr"></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-5">
+                <div class="box-for-anonymous-user">
+                    <div class="big-side">
+                        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "standart-input standart-button large-input" })                  
+                        @*<a class="standart-input standart-button large-input" href="#">Register</a>*@
+                    </div>
+                    <div class="clear"></div>
+                </div>
             </div>
         </div>
     </section>
 }
+<!-- Load progress bar -->
+<script>
+    window.bar = new ProgressBar.Line('#imgLoadProgress', {
+        strokeWidth: 4,
+        easing: 'easeInOut',
+        duration: 3000,
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        svgStyle: {width: '98%', height: '100%'},
+        text: {
+            style: {
+                // Text color.
+                // Default: same as stroke color (options.color)
+                color: '#999',
+                position: 'relative',
+                right: '0',
+                top: '10px',
+                padding: 0,
+                margin: 0,
+                transform: null
+            },
+            autoStyleContainer: false
+        },
+        from: {color: '#FFEA82'},
+        to: {color: '#ED6A5A'},
+        step: function (state, bar) {
+            bar.setText(Math.round(bar.value() * 100) + ' %');
+        }
+    });
 
-
-
+    $('#file-5').on('change', function () {
+        bar.animate(1);
+    });
+</script>
 
 <!--Discovery photo section(Maybe rename this section)-->
 <a name="discoveryPhoto"></a>
@@ -126,7 +183,7 @@ else
                 <a href="Content/@photo.Path" rel="prettyPhoto">
                     <img src="Content/@photo.Path" alt="" />
                     <span class="zoom-icon fa fa-search"></span>
-                </a>  
+                </a>
                 @if (User.Identity.GetUserId() == null)
                 {
                     <p class="job-role">
@@ -203,13 +260,13 @@ else
                 &nbsp;
             </div>
             <div class="grid-3">
-                <input type="text" name="" placeholder="Your name" required />
+                <input  class="inverse-color-input" type="text" name="" placeholder="Your name" required />
             </div>
             <div class="grid-3">
-                <input type="text" name="" placeholder="Email address" required />
+                <input class="inverse-color-input" type="text" name="" placeholder="Email address" required />
             </div>
             <div class="grid-2">
-                <input type="submit" name="" value="Subscribe" />
+                <input class="inverse-button" type="submit" name="" value="Subscribe" />
             </div>
             <div class="grid-2">
                 &nbsp;

@@ -201,6 +201,9 @@
   <ItemGroup>
     <Content Include="Content\animate.css" />
     <Content Include="Content\arrow-upload-icon.png" />
+    <Content Include="Content\background-1.jpg" />
+    <Content Include="Content\background-2.jpg" />
+    <Content Include="Content\background-3.jpg" />
     <Content Include="Content\blocklike.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />

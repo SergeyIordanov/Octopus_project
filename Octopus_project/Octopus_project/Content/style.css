@@ -476,15 +476,15 @@ section.parallax {
 }
 
 section.parallax-1 {
-    background-image: url("../images/background-1.jpg");
+    background-image: url("background-1.jpg");
 }
 
 section.parallax-2 {
-    background-image: url("../images/background-2.jpg");
+    background-image: url("background-2.jpg");
 }
 
 section.parallax-3 {
-    background-image: url("../images/background-3.jpg");
+    background-image: url("background-3.jpg");
 }
 
 /*Team*/
