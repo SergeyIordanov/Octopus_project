@@ -23,7 +23,9 @@ namespace Octopus_project.Controllers
 
         public ActionResult Index()
         {
+            ViewData.Clear();
             ViewBag.Likes = db.Likes.ToList();
+            ViewData.Add("users", db.Users.ToList());
             List<Photo> model = db.Photos.ToList();
             model.Reverse();
             return View(model);

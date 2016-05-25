@@ -1,11 +1,34 @@
 ﻿@using Microsoft.AspNet.Identity
+@using Octopus_project.Models
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
-
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        if (ViewData.ContainsKey("users"))
+        {
+            int x = 0;
+            for (int i = 0; i < ViewData.Keys.Count; i++)
+            {
+                if (ViewData.Keys.ToArray()[i].Equals("users"))
+                {
+                    x = i;
+                }
+            }
+            foreach (var user in (List<ApplicationUser>)ViewData.ElementAt(x).Value)
+            {
+                if (user.Id.Equals(User.Identity.GetUserId()))
+                {
+                    @Html.ActionLink("Hello " + user.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    break;
+                }
+            }
+        }
+        else
+        {
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        }
         <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
     }
 }

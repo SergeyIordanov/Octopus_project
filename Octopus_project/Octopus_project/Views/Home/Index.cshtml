@@ -28,8 +28,7 @@
                 <img src="Content/site-title.png" alt="site-title" />
                 <!--<a href="#">Skewed</a>-->
             </div>
-            <nav class="nav-collapse">
-
+            <nav class="nav-collapse">               
                 <!--Main menu-->
                 <ul class="top-nav">
                     <li><a href="#">Main</a></li>
@@ -37,7 +36,7 @@
                     <li><a href="#discoveryPhoto">Discvoer</a></li>
                     <li><a href="#howItWorks">How it works</a></li>
                     <li><a href="#Subscribe">Subscribe</a></li>
-                    <li>@Html.Partial("_LoginPartial")</li>
+                    <li>@Html.Partial("_LoginPartial", ViewData)</li>                
                 </ul>
             </nav>
             <script>
