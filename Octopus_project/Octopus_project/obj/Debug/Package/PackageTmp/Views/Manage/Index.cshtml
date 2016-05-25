@@ -1,0 +1,129 @@
+﻿@model Octopus_project.Models.IndexViewModel
+@{
+    ViewBag.Title = "Your account";
+}
+
+<header class="header">
+    <div style="position: relative; padding: 0px;" class="top-bar">
+        <a href="/">
+            <div style="width: 200px; position:absolute; left: 50%; margin-left: -100px" class="site-title">               
+                     <img style="width: 100%;" src="~/Content/site-title.png" alt="site-title" />
+            </div>
+        </a>
+    </div>
+    <div class="clear"></div>
+</header>
+
+<div class="account-block">
+    <div class="container">
+        <div class="grid-4">
+            @if (Model.Avatar != null)
+            {
+            <div class="avatar">@Html.Raw("<img alt='Avatar' style = 'width: 70%; height: 70%' src =\"data:image/jpeg;base64," + Convert.ToBase64String(Model.Avatar) + "\" />")</div>
+            }
+            else
+            {
+                <div class="avatar"><img alt='Avatar' style = 'width: 70%; height: 70%' src ="~/Content/circle.png"/>")</div>
+            }
+        </div>
+        <div class="grid-8">
+            <div style="height: 150px;">
+                <h2 align="center" style="position: relative; top: 30%;">Your account</h2>
+            </div>
+        </div>
+        <div class="thin-hr"></div>
+        <div class="grid-12"><h1 align="center">Account information</h1></div>
+        <div class="account-information">
+            <div class="container">
+                <div class="grid-8">
+                    <div class="nest">
+                        <div class="grid-2">Name:</div>
+                        <div class="grid-10 info">@Model.Name</div>
+
+                        <div class="grid-2">Surname:</div>
+                        <div class="grid-10 info">@Model.Surname</div>
+
+                        <div class="grid-2">Email:</div>
+                        <div class="grid-10 info">@Model.Email</div>
+
+                        <div class="grid-2">Registration date:</div> <!-- Wtf? nahuya pol'zovatelyu ego data registracii? )) -->
+                        <div class="grid-10 info">@Model.RegistrationDate</div>
+                    </div>
+                </div>
+                <div class="grid-4">
+                    <div class="change-password-block">
+                        @Html.ActionLink("Change your password", "ChangePassword", routeValues: null, htmlAttributes: new { @class = "standart-input inverse-button large-input" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        @*<dt>External Logins:</dt>
+          <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Manage", "ManageLogins") ]
+          </dd>
+        *@
+        @*
+            Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+             
+             See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+             
+             Uncomment the following block after you have set up two-factor authentication
+        *@
+        @*  
+            <dt>Phone Number:</dt>
+            <dd>
+                @(Model.PhoneNumber ?? "None")
+                @if (Model.PhoneNumber != null)
+                {
+                    <br />
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
+                    using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                    }
+                }
+                else
+                {
+                    <text>[&nbsp;&nbsp;@Html.ActionLink("Add", "AddPhoneNumber")
+                }
+            </dd>
+        *@
+        @*
+        <dt>Two-Factor Authentication:</dt>
+        <dd>
+            <p>
+                There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+                for details on setting up this ASP.NET application to support two-factor authentication.
+            </p>
+            *@
+            @*@if (Model.TwoFactor)
+                {
+                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Enabled
+                        <input type="submit" value="Disable" class="btn btn-link" />
+                        </text>
+                    }
+                }
+                else
+                {
+                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <text>Disabled
+                        <input type="submit" value="Enable" class="btn btn-link" />
+                        </text>
+                    }
+                }*@
+        @*
+        </dd>
+        *@

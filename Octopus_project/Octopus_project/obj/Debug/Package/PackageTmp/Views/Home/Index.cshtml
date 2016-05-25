@@ -1,0 +1,323 @@
+﻿@model IEnumerable<Octopus_project.Models.Photo>
+@{
+    ViewBag.Title = "Octopus Demo";
+}
+
+@using Microsoft.AspNet.Identity;
+
+<style>
+    .no-left {
+        float: none !important;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('#cbp-fwslider').cbpFWSlider({
+            // default transition speed (ms)
+            speed: 1000,
+            // default transition easing
+            easing: 'ease'
+        });
+    });
+</script>
+<header class="header">
+    <div class="top-bar">
+        <div class="container">
+            <div class="site-title">
+                <img src="Content/site-title.png" alt="site-title" />
+                <!--<a href="#">Skewed</a>-->
+            </div>
+            <nav class="nav-collapse">
+
+                <!--Main menu-->
+                <ul class="top-nav">
+                    <li><a href="#">Main</a></li>
+                    <li><a href="#uploadPhoto">Upload</a></li>
+                    <li><a href="#discoveryPhoto">Discvoer</a></li>
+                    <li><a href="#howItWorks">How it works</a></li>
+                    <li><a href="#Subscribe">Subscribe</a></li>
+                    <li>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </nav>
+            <script>
+                var navigation = responsiveNav(".nav-collapse");
+            </script>
+        </div>
+    </div>
+</header>
+
+
+@if (User.Identity.GetUserId() != null)
+{
+    <!--Section for Uppload photoes-->
+    <a name="uploadPhoto"></a>
+    <section>
+
+        <div class="container-12">
+            <div class="text-block-center">
+                <div class="appendix"></div>
+                <form class="mailing-list">
+
+                    <div class="grid-12 no-left">
+                        <h2>Upload photo</h2>
+                    </div>
+
+                    <!--Div for uppload button (Codrops)-->
+                    <div class="box ">
+                        <input type="file" accept="image/jpeg,image/png" required name="file" id="file-5"
+                               class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple="">
+                        <label for="file-5" id="uploadLabel">
+                            <figure>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                                </svg>
+                            </figure>
+                            <span>Choose a file…</span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <div id="imgLoadProgress"></div>
+                        <input style="margin-top: 10%" type="submit" name="" value="Send" />
+                    </div>
+
+                </form>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <a name="uploadPhoto"></a>
+    <section>
+        <div style="margin-top: 100px" class="container">
+            <h1 align="center">To add your own photos you have to login or register</h1>
+
+            <div class="grid-5">
+                <div class="box-for-anonymous-user">
+                    <div class="big-side">
+                        @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "standart-input standart-button large-input" })
+                       @* <a class="standart-input standart-button large-input" href="#">Login</a>*@
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="show-on-small">
+                <hr />
+            </div>
+            <div class="grid-2 remove-on-small">
+                <div class="box-for-anonymous-user">
+                    <div class="big-side">
+                        <div class="vertical-hr"></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-5">
+                <div class="box-for-anonymous-user">
+                    <div class="big-side">
+                        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "standart-input standart-button large-input" })                  
+                        @*<a class="standart-input standart-button large-input" href="#">Register</a>*@
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<!-- Load progress bar -->
+<script>
+    window.bar = new ProgressBar.Line('#imgLoadProgress', {
+        strokeWidth: 4,
+        easing: 'easeInOut',
+        duration: 3000,
+        color: '#FFEA82',
+        trailColor: '#eee',
+        trailWidth: 1,
+        svgStyle: {width: '98%', height: '100%'},
+        text: {
+            style: {
+                // Text color.
+                // Default: same as stroke color (options.color)
+                color: '#999',
+                position: 'relative',
+                right: '0',
+                top: '10px',
+                padding: 0,
+                margin: 0,
+                transform: null
+            },
+            autoStyleContainer: false
+        },
+        from: {color: '#FFEA82'},
+        to: {color: '#ED6A5A'},
+        step: function (state, bar) {
+            bar.setText(Math.round(bar.value() * 100) + ' %');
+        }
+    });
+
+    $('#file-5').on('change', function () {
+        bar.animate(1);
+    });
+</script>
+
+<!--Discovery photo section(Maybe rename this section)-->
+<a name="discoveryPhoto"></a>
+<section class="alt-background skew-top-ccw skew-bottom-ccw">
+    <div class="container-12">
+        <script>
+            $(document).ready(function () {
+                $("a[rel^='prettyPhoto']").prettyPhoto({
+                    deeplinking: false,
+                    social_tools: false
+                });
+            });
+        </script>
+        <div class="text-block-center">
+            <h2>Discover the photos</h2>
+            <p class="subheading">We are waiting for your likes</p>
+        </div>
+    </div>
+    <div id="owl-portfolio">
+
+        @foreach (var photo in Model)
+        {
+            bool isLiked = false;
+            <div class="portfolio-item animated flipInX wow vote" data-wow-delay="500ms">
+                <a href="Content/@photo.Path" rel="prettyPhoto">
+                    <img src="Content/@photo.Path" alt="" />
+                    <span class="zoom-icon fa fa-search"></span>
+                </a>
+                @if (User.Identity.GetUserId() == null)
+                {
+                    <p class="job-role">
+                        <img src="Content/blocklike.png" alt="" /> Like +<span class="like">@photo.Likes</span>
+                    </p>
+                }
+                else
+                {
+                    foreach (var like in ViewBag.Likes)
+                    {
+                        if (like.PhotoId == photo.PhotoId && like.UserId.Equals(User.Identity.GetUserId()))
+                        {
+                            isLiked = true;
+                            <a href="~/Home/Like?photoId=@photo.PhotoId">
+                                <p class="job-role">
+                                    <img src="Content/liked.png" alt="" /> Like +<span class="like">@photo.Likes</span>
+                                </p>
+                            </a>
+                        }
+                    }
+                    if (!isLiked)
+                    {
+                        <a href="~/Home/Like?photoId=@photo.PhotoId">
+                            <p class="job-role">
+                                <img src="Content/like.png" alt="" /> Like +<span>@photo.Likes</span>
+                            </p>
+                        </a>
+                    }
+                }
+                <h4>@photo.PublisherSurname @photo.PublisherName</h4>
+            </div>
+        }
+    </div>
+
+    <!--Some script for image annimation! DONT TOUCH and DONT CHANGE ITS POSITION-->
+    <script>
+        $(document).ready(function () {
+            $("#owl-portfolio").owlCarousel({
+                items: 4
+            });
+        });
+    </script>
+    <div class="clear"></div>
+</section>
+<!--The end of section-->
+<!--How It Works? section-->
+<a name="howItWorks"></a>
+<section>
+    <div class="container-12">
+        <div class="text-block-center">
+            <h2>How it works?</h2>
+            <p class="subheading">Just 3 steps</p>
+            <p>1)The speaker creates the challenge</p>
+            <p>2)You meet it by publishing the photo</p>
+            <p>3)The winner will be chosen by community</p>
+            <a href="#uploadPhoto" class="button">Try it now!</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+</section>
+
+
+
+<!--Subscribe section-->
+<a name="Subscribe"></a>
+<section class="alt-background skew-top-cw" style="padding-bottom: 80px;">
+    <div class="container-12">
+        <div class="text-block-center">
+            <h2>Keep Up To Date</h2>
+            <p class="subheading">Subscribe to our mailing list</p>
+        </div>
+        <form class="mailing-list">
+            <div class="grid-2">
+                &nbsp;
+            </div>
+            <div class="grid-3">
+                <input  class="inverse-color-input" type="text" name="" placeholder="Your name" required />
+            </div>
+            <div class="grid-3">
+                <input class="inverse-color-input" type="text" name="" placeholder="Email address" required />
+            </div>
+            <div class="grid-2">
+                <input class="inverse-button" type="submit" name="" value="Subscribe" />
+            </div>
+            <div class="grid-2">
+                &nbsp;
+            </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+</section>
+
+
+
+
+<footer class="footer">
+    <div class="container-12">
+        <ul class="social">
+            <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=octopus-demo.btempurl.com/" title="Facebook" class="fa fa-facebook"></a>
+            </li>
+            <li>
+                <a href="https://twitter.com/share?url=octopus-demo.btempurl.com" title="Twitter" class="fa fa-twitter"></a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/share?url=octopus-demo.btempurl.com" title="Google+" class="fa fa-google"></a>
+            </li>
+            <!--<li>
+                <a href="#" title="Instagram" class="fa fa-instagram"></a>
+            </li>-->
+            <div class="clear"></div>
+        </ul>
+        <p>Copyright 2016 <em>Octopus</em>. All Rights Reserved</p>
+    </div>
+</footer>
+
+
+
+<!--This is the example of script for notifications. For details find in google "NotifyMe" or ask Alexey Budyanskiy:)-->
+<script type="text/javascript">
+    $('.error').on('click', function () {
+        $(this).notifyMe(
+            'bottom',
+            'error',
+            'Fill all fields',
+            'You must fill all fields before uploading photo',
+            200,
+            1500
+        );
+    });
+</script>

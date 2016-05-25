@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Octopus</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image" content="Content/Octopus_logo.png" />
+    <meta property="og:title" content="Octopus - meet the challenge!" />
+    <meta property="og:description" content="Try yourself in our photo-challenge service. All information here!" />
+
+    <link rel="icon" type="image/png" href="~/Content/favicon.png">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+
+    <!--CSS-->
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="~/Content/rwdgrid.css">
+    <link rel="stylesheet" href="~/Content/skew.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/cbp-fwslider.css">
+    <link rel="stylesheet" href="~/Content/responsive-nav.css">
+    <link rel="stylesheet" href="~/Content/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/owl.theme.css">
+    <link rel="stylesheet" href="~/Content/owl.transitions.css">
+    <link rel="stylesheet" href="~/Content/animate.css">
+    <link rel="stylesheet" href="~/Content/prettyPhoto.css" />
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/mediaqueries.css">
+    <link rel="stylesheet" href="~/Content/service.css">
+    <link rel="stylesheet" href="~/Content/login-registration.css" />
+    <link rel="stylesheet" href="~/Content/personalization.css" />
+
+    <!--CSS for codrops(Upload button)-->
+    <link rel="stylesheet" href="~/Content/component.css">
+    <link rel="stylesheet" href="~/Content/normalize.css">
+
+    <!--CSS for NotifyMe(Notifications)-->
+    <link rel="stylesheet" type="text/css" href="~/Content/notifyme.css" />
+
+    <!--Javascript-->   
+    @Scripts.Render("~/bundles/jquery")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <script src="~/Scripts/modernizr.custom.js"></script>
+    <script src="~/Scripts/jquery.cbpFWSlider.js"></script>
+    <script src="~/Scripts/responsive-nav.js"></script>
+    <script src="~/Scripts/owl.carousel.js"></script>
+    <script src="~/Scripts/wow.js"></script>
+    <!--<script src="Scripts/likeSorting.js"></script>-->
+    <script>
+        new WOW().init();
+    </script>
+    <script src="~/Scripts/jquery.counterup.js"></script>
+    <script src="~/Scripts/jquery.waypoints.js"></script>
+    <script src="~/Scripts/jquery.prettyPhoto.js"></script>
+    <script src="~/Scripts/progressbar.js"></script>
+
+    <!--Javascript for notifyMe-->
+    <script type="text/javascript" src="Scripts/notifyme.js"></script>
+
+
+
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]--> 
+    
+    @Scripts.Render("~/bundles/modernizr")  
+</head>
+<body>
+    
+    @RenderBody()
+    <!--@@Html.Partial("_LoginPartial")-->
+    
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
